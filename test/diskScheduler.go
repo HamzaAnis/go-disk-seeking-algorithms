@@ -95,12 +95,6 @@ func SCAN(inputsMap map[string]int, requests []int) int {
 		if hits == len(requests) {
 			break
 		}
-
-		if direction == 1 {
-			count = count + int(math.Abs(float64(initPosition-inputsMap["lowerCYL"])))
-		} else if direction == -1 {
-			count = count + int(math.Abs(float64(initPosition-inputsMap["upperCYL"])))
-		}
 	}
 	return count
 }
@@ -161,12 +155,6 @@ func C_LOOK(inputsMap map[string]int, requests []int) int {
 
 		if hits == len(requests) {
 			break
-		}
-
-		if direction == 1 {
-			count = count + int(math.Abs(float64(initPosition-requests[0])))
-		} else if direction == -1 {
-			count = count + int(math.Abs(float64(initPosition-requests[len(requests)-1])))
 		}
 	}
 	return count
