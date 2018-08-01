@@ -6,6 +6,7 @@ import (
 	"log"
 	"math"
 	"os"
+	"sort"
 	"strconv"
 	"strings"
 )
@@ -49,6 +50,74 @@ func readFile(fileName string) (string, map[string]int, []int, error) {
 		}
 	}
 	return algoName, command, requests, nil
+}
+
+func C_LOOK(inputsMap map[string]int, requests []int) int {
+	initPosition := inputsMap["initCYL"]
+	count := 0
+	hits := 0
+	direction := 0
+	if requests[0] < initPosition {
+		direction = -1
+	} else {
+		direction = 1
+	}
+
+	sort.Sort(sort.IntSlice(requests))
+	lower := 0
+	upper := 0
+	for idx, request := range requests {
+		if request > initPosition {
+			lower = idx - 1
+			upper = idx
+			break
+		}
+	}
+
+	for {
+		if direction == -1 {
+
+			start := lower
+			end := -1
+
+			if hits > 0 {
+				start = len(requests) - 1
+				end = lower
+			}
+			for i := start; i > end; i-- {
+				hits++
+				count = count + int(math.Abs(float64(initPosition-requests[i])))
+				initPosition = requests[i]
+				fmt.Printf("Servicing %d\n", requests[i])
+			}
+		} else if direction == 1 {
+			start := upper
+			end := len(requests)
+
+			if hits > 0 {
+				start = 0
+				end = upper
+			}
+			for i := start; i < end; i++ {
+				hits++
+				count = count + int(math.Abs(float64(initPosition-requests[i])))
+				initPosition = requests[i]
+				fmt.Printf("Servicing %d\n", requests[i])
+
+			}
+		}
+
+		if hits == len(requests) {
+			break
+		}
+
+		if direction == 1 {
+			count = count + int(math.Abs(float64(initPosition-requests[0])))
+		} else if direction == -1 {
+			count = count + int(math.Abs(float64(initPosition-requests[len(requests)-1])))
+		}
+	}
+	return count
 }
 
 // FCFC implements First come first serve
