@@ -1,0 +1,18 @@
+Seek algorithm: SSTF
+	Lower cylinder:     0
+	Upper cylinder:  3000
+	Init cylinder:    27
+	Cylinder requests:
+		Cylinder   300
+		Cylinder   200
+		Cylinder   100
+		Cylinder   450
+		Cylinder  2500
+		Cylinder    38
+Servicing 38
+Servicing 100
+Servicing 200
+Servicing 300
+Servicing 450
+Servicing 2500
+SSTF traversal count = 2473

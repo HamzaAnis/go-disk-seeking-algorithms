@@ -1,0 +1,17 @@
+use c-look
+lowerCYL 0
+upperCYL 128
+initCYL 27
+cylreq 84
+cylreq 77
+cylreq 46
+cylreq 75
+cylreq 94
+cylreq 97
+cylreq 82
+cylreq 22
+cylreq 26
+cylreq 50
+cylreq 100
+cylreq 11
+end

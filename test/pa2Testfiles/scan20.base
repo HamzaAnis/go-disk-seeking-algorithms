@@ -1,0 +1,46 @@
+Seek algorithm: SCAN
+	Lower cylinder:     0
+	Upper cylinder: 12000
+	Init cylinder:  1200
+	Cylinder requests:
+		Cylinder  2781
+		Cylinder  4706
+		Cylinder  1347
+		Cylinder  1192
+		Cylinder  3087
+		Cylinder  2920
+		Cylinder   198
+		Cylinder  2312
+		Cylinder   930
+		Cylinder  3284
+		Cylinder  1677
+		Cylinder  3687
+		Cylinder  2011
+		Cylinder  4107
+		Cylinder  4148
+		Cylinder  4195
+		Cylinder  2159
+		Cylinder  1263
+		Cylinder  2918
+		Cylinder  2503
+Servicing 1263
+Servicing 1347
+Servicing 1677
+Servicing 2011
+Servicing 2159
+Servicing 2312
+Servicing 2503
+Servicing 2781
+Servicing 2918
+Servicing 2920
+Servicing 3087
+Servicing 3284
+Servicing 3687
+Servicing 4107
+Servicing 4148
+Servicing 4195
+Servicing 4706
+Servicing 1192
+Servicing 930
+Servicing 198
+SCAN traversal count = 22602

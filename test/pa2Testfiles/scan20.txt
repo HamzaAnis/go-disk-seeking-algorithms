@@ -1,0 +1,25 @@
+use scan
+lowerCYL 0
+upperCYL 12000
+initCYL 1200
+cylreq 2781
+cylreq 4706
+cylreq 1347
+cylreq 1192
+cylreq 3087
+cylreq 2920
+cylreq 198
+cylreq 2312
+cylreq 930
+cylreq 3284
+cylreq 1677
+cylreq 3687
+cylreq 2011
+cylreq 4107
+cylreq 4148
+cylreq 4195
+cylreq 2159
+cylreq 1263
+cylreq 2918
+cylreq 2503
+end

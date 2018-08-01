@@ -1,0 +1,18 @@
+Seek algorithm: FCFS
+	Lower cylinder:     0
+	Upper cylinder:  3000
+	Init cylinder:    27
+	Cylinder requests:
+		Cylinder   300
+		Cylinder   200
+		Cylinder   100
+		Cylinder   450
+		Cylinder  2500
+		Cylinder    38
+Servicing   300
+Servicing   200
+Servicing   100
+Servicing   450
+Servicing  2500
+Servicing    38
+FCFS traversal count = 5335
