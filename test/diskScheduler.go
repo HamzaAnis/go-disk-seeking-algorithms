@@ -52,6 +52,58 @@ func readFile(fileName string) (string, map[string]int, []int, error) {
 	return algoName, command, requests, nil
 }
 
+func SCAN(inputsMap map[string]int, requests []int) int {
+	initPosition := inputsMap["initCYL"]
+	count := 0
+	hits := 0
+	direction := 0
+	if requests[0] < initPosition {
+		direction = -1
+	} else {
+		direction = 1
+	}
+
+	sort.Sort(sort.IntSlice(requests))
+	lower := 0
+	upper := 0
+	for idx, request := range requests {
+		if request > initPosition {
+			lower = idx - 1
+			upper = idx
+			break
+		}
+	}
+	for {
+		if direction == 1 {
+			for i := upper; i < len(requests); i++ {
+				count = count + int(math.Abs(float64(initPosition-requests[i])))
+				fmt.Printf("Servicing %d\n", requests[i])
+				initPosition = requests[i]
+				hits++
+			}
+			direction = -1
+		} else if direction == -1 {
+			for i := lower; i >= 0; i-- {
+				fmt.Printf("Servicing %d\n", requests[i])
+				count = count + int(math.Abs(float64(initPosition-requests[i])))
+				initPosition = requests[i]
+				hits++
+			}
+			direction = 1
+		}
+
+		if hits == len(requests) {
+			break
+		}
+
+		if direction == 1 {
+			count = count + int(math.Abs(float64(initPosition-inputsMap["lowerCYL"])))
+		} else if direction == -1 {
+			count = count + int(math.Abs(float64(initPosition-inputsMap["upperCYL"])))
+		}
+	}
+	return count
+}
 func C_LOOK(inputsMap map[string]int, requests []int) int {
 	initPosition := inputsMap["initCYL"]
 	count := 0
@@ -193,7 +245,7 @@ func main() {
 		} else if algoName == "sstf" {
 			fmt.Printf("SSTF traversal count = %d\n", SSTF(inputsMap, requests))
 		} else if algoName == "scan" {
-			// fmt.Printf("C-LOCK traversal count = %d\n", C_LOOK(inputsMap, requests))
+			fmt.Printf("SCAN traversal count = %d\n", SCAN(inputsMap, requests))
 
 		} else if algoName == "c-scan" {
 			fmt.Printf("FCFS traversal count = %d\n", FCFS(inputsMap, requests))
